@@ -11,10 +11,18 @@ pipeline {
     }
     stage('Front-end') {
       agent {
-        docker { image 'nose:15-alpine' }
+        docker { image 'nose:16-alpine' }
       }
       steps {
         sh 'node --version'
+      }
+    }
+    stage('DB') {
+      agent {
+        docker { image 'mysql: latest' }
+      }
+      steps {
+        sh 'SELECT * FROM XYZ'
       }
     }
   }
