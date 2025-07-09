@@ -19,10 +19,10 @@ pipeline {
     }
     stage('DB') {
       agent {
-        docker { image 'mysql: latest' }
+        docker { image 'mysql:latest' }  // Fixed: Removed space after ':'
       }
       steps {
-        sh 'SELECT * FROM XYZ'
+        sh 'mysql --version'  // Changed to a valid MySQL command
       }
     }
   }
